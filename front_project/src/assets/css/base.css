@@ -1,0 +1,17 @@
+:root {
+    --text-primary: #404040;
+    
+    --bg-primary: #e6e6e6;
+    --bg-secondary: white;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+* {
+    box-sizing: border-box;
+}

@@ -1,16 +1,12 @@
-import { createRouter, createWebHistory } from 'vue-router';
-import Home from '../components/HelloWorld.vue';
+import { createRouter } from 'vue-router'
+import { setupLayouts } from 'virtual:generated-layouts'
+import generatedRoutes from 'virtual:generated-pages'
+import { createWebHistory } from 'vue-router';
 
-const routes = [
-    { path: '/', component: Home },
-]
-
-// 3. Create the router instance and pass the `routes` option
-// You can pass in additional options here, but let's
-// keep it simple for now.
+const routes = setupLayouts(generatedRoutes)
 const router = createRouter({
     history: createWebHistory(),
-    routes
-})
+    routes,
+});
 
 export default router;

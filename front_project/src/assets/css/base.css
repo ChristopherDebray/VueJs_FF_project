@@ -2,7 +2,12 @@
     --text-primary: #404040;
     
     --bg-primary: #e6e6e6;
-    --bg-secondary: white;
+    --bg-secondary: #1b1b1b;
+    --bg-tertiary: #3f4345;
+
+    --color-light: white;
+    --color-dark: black;
+
 }
 
 body {

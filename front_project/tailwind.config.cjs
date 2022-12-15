@@ -5,11 +5,16 @@ module.exports = {
   theme: {
     extend: {},
     textColor: {
-      'primary': '#404040',
+      'primary': 'var(--text-primary)',
+      'light': 'var(--color-light)',
+      'dark': 'var(--color-dark)',
     },
     backgroundColor: {
-      'primary': '#e6e6e6',
-      'secondary': 'white',
+      'primary': 'var(--bg-primary)',
+      'secondary': 'var(--bg-secondary)',
+      'tertiary': 'var(--bg-tertiary)',
+      'light': 'var(--color-light)',
+      'dark': 'var(--color-dark)',
     },
   },
   plugins: [],

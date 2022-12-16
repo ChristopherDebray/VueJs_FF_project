@@ -1,17 +1,18 @@
 <script setup>
-import { ref } from 'vue'
+import TwoColumnLayout from '../../layouts/twoColumnDescriptive.vue';
+import TwoColumn from '../../layouts/twoColumn.vue';
 
-defineProps({
-  msg: String,
-})
-
-const count = ref(0)
 </script>
 
 <template>
-    <div>
-        <h1>Caracter</h1>
-    </div>
+    <TwoColumn>
+        <template #leftSide>
+            <h1>SideBar</h1>
+        </template>
+        <template #rightSide>
+            <h1>Content</h1>
+        </template>
+    </TwoColumn>
 </template>
 
 <style>

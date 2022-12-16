@@ -5,14 +5,14 @@ import Navbar from './components/navigation/Navbar.vue';
 <template>
   <div class="">
     <Navbar />
-    <main class="main-container">
+    <div class="main-container">
       <router-view></router-view>
-    </main>
+    </div>
   </div>
 </template>
 
 <style scoped>
 .main-container {
-  margin-top: 4.5rem;
+  margin-top: 4rem;
 }
 </style>

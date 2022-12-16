@@ -2,7 +2,8 @@
 
 <template>
     <div class="default-layout">
-        <router-view />
+        <slot>
+        </slot>
     </div>
 </template>
 
@@ -12,7 +13,6 @@
     flex-direction: column;
     min-height: 100vh;
     width: 80%;
-    padding-top: 15px;
     margin: 0 auto;
 }
 </style>

@@ -1,8 +1,5 @@
 <script setup>
-    const mainLinksArray = [
-        {name : 'Home', href: '/'},
-        {name : 'Character', href: '/characters'}
-    ];
+    import mainLinksArray from '../../data/mainlinks.json';
 </script>
 
 <template>

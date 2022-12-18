@@ -4,11 +4,7 @@
 import { describe, expect, it } from 'vitest';
 import { mount } from '@vue/test-utils';
 import Navbar from './Navbar.vue';
-
-const mainLinksArray = [
-    {name : 'Home', href: '/'},
-    {name : 'Character', href: '/characters'}
-];
+import mainLinksArray from '../../data/mainlinks.json';
 
 describe('Test navbar component', () => {
     it('Should contains all the links from the mainLinksArray', () => {

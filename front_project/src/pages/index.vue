@@ -4,10 +4,10 @@
 <template>
     <div class="homepage">
         <h1>Homepage</h1>
-        <div>
+        <main>
             Welcome to the homepage
             I have no idea of what to put here
-        </div>
+        </main>
     </div>
 </template>
 

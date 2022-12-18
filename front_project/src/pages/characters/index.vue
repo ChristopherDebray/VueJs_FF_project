@@ -1,7 +1,4 @@
 <script setup>
-import Searchbar from '../../components/form/Searchbar.vue';
-import TwoColumnLayout from '../../layouts/twoColumnDescriptive.vue';
-
 </script>
 
 <template>

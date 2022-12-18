@@ -7,7 +7,7 @@ import Navbar from './Navbar.vue';
 
 const mainLinksArray = [
     {name : 'Home', href: '/'},
-    {name : 'Character', href: '/character'}
+    {name : 'Character', href: '/characters'}
 ];
 
 describe('Test navbar component', () => {

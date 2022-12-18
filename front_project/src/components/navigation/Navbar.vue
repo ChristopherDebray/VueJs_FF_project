@@ -1,7 +1,7 @@
 <script setup>
     const mainLinksArray = [
         {name : 'Home', href: '/'},
-        {name : 'Character', href: '/character'}
+        {name : 'Character', href: '/characters'}
     ];
 </script>
 

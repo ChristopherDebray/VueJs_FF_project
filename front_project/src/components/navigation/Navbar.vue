@@ -1,11 +1,16 @@
 <script setup>
+    const mainLinksArray = [
+        {name : 'Home', href: '/'},
+        {name : 'Character', href: '/character'}
+    ];
 </script>
 
 <template>
     <nav class="bg-secondary topnav">
         <div class="topnav__container">
-            <router-link class="hover:bg-light hover:text-dark" to="/">Home</router-link>
-            <router-link class="hover:bg-light hover:text-dark" to="/cHaracter">Character</router-link>
+            <router-link v-for="link in mainLinksArray" :key="link.name" class="hover:bg-light hover:text-dark" :to="link.href">
+                {{ link.name }}
+            </router-link>
         </div>
     </nav>
 </template>

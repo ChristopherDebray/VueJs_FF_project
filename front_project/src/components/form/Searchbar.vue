@@ -1,6 +1,4 @@
 <script setup>
-import { useAttrs } from "@vue/runtime-core";
-
 defineProps(
     {
         placeholder: {

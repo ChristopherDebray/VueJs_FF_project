@@ -1,9 +1,9 @@
 /**
  * @vitest-environment happy-dom
  */
-import { describe, expect, it } from 'vitest'
-import { mount } from '@vue/test-utils'
-import Searchbar from './src/components/form/Searchbar.vue'
+import { describe, expect, it } from 'vitest';
+import { mount } from '@vue/test-utils';
+import Searchbar from './src/components/form/Searchbar.vue';
 
 describe('check Searchbar component', () => {
     it('should be render with it\'s default values', () => {

@@ -5,7 +5,7 @@
     <nav class="bg-secondary topnav">
         <div class="topnav__container">
             <router-link class="hover:bg-light hover:text-dark" to="/">Home</router-link>
-            <router-link class="hover:bg-light hover:text-dark" to="/caracter">Caracter</router-link>
+            <router-link class="hover:bg-light hover:text-dark" to="/cHaracter">Character</router-link>
         </div>
     </nav>
 </template>

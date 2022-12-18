@@ -1,11 +1,16 @@
 <template>
-    <div class="two-column-layout">
-        <aside>
-            <slot name="sideBar" />
-        </aside>
-        <main>
-            <slot name="content" />
-        </main>
+    <div>
+        <h1>
+            <slot name="title" />
+        </h1>
+        <div class="two-column-layout">
+            <aside>
+                <slot name="sideBar" />
+            </aside>
+            <main>
+                <slot name="content" />
+            </main>
+        </div>
     </div>
 </template>
 

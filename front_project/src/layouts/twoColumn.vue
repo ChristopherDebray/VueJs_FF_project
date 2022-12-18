@@ -1,12 +1,17 @@
 <template>
-    <main class="two-column-layout">
-        <div>
-            <slot name="leftSide" />
-        </div>
-        <div>
-            <slot name="rightSide" />
-        </div>
-    </main>
+    <div>
+        <h1>
+            <slot name="title" />
+        </h1>
+        <main class="two-column-layout">
+            <div>
+                <slot name="leftSide" />
+            </div>
+            <div>
+                <slot name="rightSide" />
+            </div>
+        </main>
+    </div>
 </template>
 
 <style scoped>

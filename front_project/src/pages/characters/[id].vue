@@ -6,7 +6,7 @@ import TwoColumnLayout from '../../layouts/twoColumnDescriptive.vue';
 <template>
     <TwoColumnLayout>
         <template #title>
-            <h1>Personnage</h1>
+            Personnage
         </template>
         <template #sideBar>
             <p>SideBar</p>

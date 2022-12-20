@@ -20,8 +20,8 @@
 <template>
     <div class="class_line">
         <router-link class="hover:bg-light hover:text-dark" :to="`/classes/${classId}`">
-            <img :src="classIconUrl" :alt="className+' class icon'" class="class_line__icon">
-            <span class="class_line__name">{{ className }}</span>
+            <img :src="classIconUrl" :alt="$filters.capitalizeFirstLetter(className)+' class icon'" class="class_line__icon">
+            <span class="class_line__name">{{ $filters.capitalizeFirstLetter(className) }}</span>
         </router-link>
     </div>
 </template>

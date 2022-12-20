@@ -6,7 +6,7 @@ import { mount } from '@vue/test-utils';
 import Homepage from './index.vue';
 
 describe('Test homepage', () => {
-    it('Should contains homepage title', () => {
+    it('Should contains Homepage title', () => {
         const wrapper = mount(Homepage);
         expect(wrapper.find('h1').element.textContent).toBe('Homepage')
     })

@@ -5,14 +5,14 @@ export default {
         return APISettings.baseURL;
     },
 
-    getAllClasses () {
-        return axios
+    async getAllJobs () {
+        return await axios
             .get(`${APISettings.baseURL}/ClassJob?${APISettings.privateKeyString}`)
             .then(response => (this.info = response.data))
     },
 
-    getClassDetails () {
-        return axios
+    async getJobDetails () {
+        return await axios
             .get(`${APISettings.baseURL}/ClassJob?${APISettings.privateKeyString}`)
             .then(response => (this.info = response.data))
     },

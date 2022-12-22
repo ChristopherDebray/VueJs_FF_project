@@ -11,10 +11,6 @@ describe('Test jobs page', () => {
         expect(wrapper.find('h1').element.textContent).toBe('Jobs');
     })
 
-    /*
-     * Here we check if the ClassLine component is displayed and if the fetch from the api works
-     * I am using the Gladiator class raw data, but since this is an api the infos might change so it is not the best solution here
-     */
     it('Should contain one job from the final fantasy XIV game', () => {
         const wrapper = mount(Jobs);
         expect(wrapper.find('.class_line__name').element.textContent).toBe("Paladin")

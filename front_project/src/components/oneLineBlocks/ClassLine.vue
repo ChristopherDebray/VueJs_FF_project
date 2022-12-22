@@ -19,8 +19,8 @@
 
 <template>
     <div class="class_line">
-        <router-link class="hover:bg-light hover:text-dark" :to="`/classes/${classId}`">
-            <img :src="classIconUrl" :alt="$filters.capitalizeFirstLetter(className)+' class icon'" class="class_line__icon">
+        <router-link class="hover:bg-light hover:text-dark" :to="`/jobs/${classId}`">
+            <img :src="classIconUrl" :alt="$filters.capitalizeFirstLetter(className)+' job icon'" class="class_line__icon">
             <span class="class_line__name">{{ $filters.capitalizeFirstLetter(className) }}</span>
         </router-link>
     </div>
@@ -29,5 +29,27 @@
 <style scoped>
     .class_line {
         display: flex;
+    }
+    .class_line a {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding: 10px;
+    }
+    .class_line__icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 10px;
+        border: 1px solid #D3ADA6;
+        padding: 5px;
+        /*
+            background-color: #346624; 
+            background-color: #2d3a80; 
+            */
+            background-color: #732828; 
+    }
+
+    .class_line__name {
+        margin-left: 10px;
     }
 </style>

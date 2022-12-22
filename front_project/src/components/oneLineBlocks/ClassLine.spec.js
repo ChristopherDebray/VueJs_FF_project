@@ -10,7 +10,7 @@ describe('Test class line component', () => {
         const data = {
             'className': 'Test',
             'classIconUrl': 'https://xivapi.com/cj/1//gladiator.png',
-            'classId': "eazeza"
+            'classId': "test"
         };
         const wrapper = mount(ClassLine, {
             propsData: data
@@ -18,7 +18,7 @@ describe('Test class line component', () => {
 
         expect(wrapper.find('.class_line__name').element.textContent).toBe(data.className)
         expect(wrapper.find('.class_line__icon').element.getAttribute('src')).toBe(data.classIconUrl)
-        expect(wrapper.find('.class_line__icon').element.getAttribute('alt')).toBe(`${data.className} class icon`)
-        expect(wrapper.find(`router-link[to="/classes/${data.classId}"]`).exists()).toBeTruthy()
+        expect(wrapper.find('.class_line__icon').element.getAttribute('alt')).toBe(`${data.className} job icon`)
+        expect(wrapper.find(`router-link[to="/jobs/${data.classId}"]`).exists()).toBeTruthy()
     })
 })

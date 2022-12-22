@@ -23,7 +23,6 @@
 
 .two-column-layout aside,
 .two-column-layout div {
-    background: dodgerblue;
     grid-column: span 1;
 }
 

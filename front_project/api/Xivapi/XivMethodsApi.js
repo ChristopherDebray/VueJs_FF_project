@@ -6,14 +6,14 @@ export default {
     },
 
     async getAllJobs () {
-        return await axios
+        return axios
             .get(`${APISettings.baseURL}/ClassJob?${APISettings.privateKeyString}`)
             .then(response => (this.info = response.data))
     },
 
-    async getJobDetails () {
-        return await axios
-            .get(`${APISettings.baseURL}/ClassJob?${APISettings.privateKeyString}`)
+    async getBasicJobDetails (jobId) {
+        return axios
+            .get(`${APISettings.baseURL}/ClassJob/${jobId}?columns=ID,Name,Icon,ClassJobCategory.Name,StartingLevel,ClassJobParent,UnlockQuest.ClassJobLevel0,Role&${APISettings.privateKeyString}`)
             .then(response => (this.info = response.data))
     },
 }

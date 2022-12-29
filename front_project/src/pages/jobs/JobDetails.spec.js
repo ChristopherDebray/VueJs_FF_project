@@ -3,11 +3,11 @@
  */
 import { describe, expect, it } from 'vitest';
 import { mount } from '@vue/test-utils';
-import Jobs from './index.vue';
+import JobDetails from './[id].vue';
 
-describe('Test jobs page', () => {
-    it('Should contain one job from the final fantasy XIV game', () => {
-        const wrapper = mount(Jobs);
+describe('Test job details page', () => {
+    it('Should contain the job details', () => {
+        const wrapper = mount(JobDetails);
         expect(wrapper.find('.class_line__name').element.textContent).toBe("Paladin")
         expect(wrapper.find('.class_line__icon').element.getAttribute('src')).toBe("/cj/1/paladin.png")
         expect(wrapper.find('.class_line__icon').element.getAttribute('alt')).toBe("Paladin class icon")

@@ -3,7 +3,7 @@
 
 <template>
     <main>
-        <h1>Personnages</h1>
+        <h1>Characters</h1>
     </main>
 </template>
 

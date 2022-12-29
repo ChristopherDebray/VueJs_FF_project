@@ -13,7 +13,7 @@ export default {
 
     async getBasicJobDetails (jobId) {
         return axios
-            .get(`${APISettings.baseURL}/ClassJob/${jobId}?columns=ID,Name,Icon,ClassJobCategory.Name,StartingLevel,ClassJobParent,UnlockQuest.ClassJobLevel0,Role&${APISettings.privateKeyString}`)
+            .get(`${APISettings.baseURL}/ClassJob/${jobId}?columns=ID,Name,Icon,ClassJobCategory.Name,StartingLevel,ClassJobParent,UnlockQuest.ClassJobLevel0,Role,ItemStartingWeapon.ClassJobUse.StartingTown&${APISettings.privateKeyString}`)
             .then(response => (this.info = response.data))
     },
 }

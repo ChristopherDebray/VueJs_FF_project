@@ -19,7 +19,7 @@ app.config.globalProperties.$filters = {
             'default': () => 'Unknown role'
         };
 
-        return (roleString[fruit] || roleString['default'])()
+        return (roleString[jobRoleInt] || roleString['default'])()
     }
 }
 app.use(router);

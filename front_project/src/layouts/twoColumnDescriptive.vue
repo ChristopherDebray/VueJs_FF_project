@@ -21,17 +21,11 @@
     grid-column-gap: 1rem;
 }
 
-.two-column-layout aside,
-.two-column-layout main {
-    background: red;
-}
-
-.two-column-layout aside {
-    grid-column: span 1;
-    background: dodgerblue;
-}
-
 .two-column-layout main {
     grid-column: span 2;
+}
+
+.two-column-layout main, .two-column-layout aside {
+    padding: 5px;
 }
 </style>

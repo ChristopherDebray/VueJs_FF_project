@@ -4,7 +4,7 @@ import XivMethodsApi from '../../../api/Xivapi/XivMethodsApi'
 import ClassLine from '../../components/oneLineBlocks/ClassLine.vue';
 
 const allJobs = await XivMethodsApi.getAllJobs()
-let jobsResult = allJobs.Results.slice(20);
+let jobsResult = allJobs.Results.slice(18);
 const middleIndex = Math.ceil(jobsResult.length / 2);
 const firstJobsHalf = jobsResult.splice(0, middleIndex);
 const secondJobsHalf = jobsResult.splice(-middleIndex);

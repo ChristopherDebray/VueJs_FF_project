@@ -1,0 +1,25 @@
+<script setup>
+import ClassLine from '../../components/oneLineBlocks/ClassLine.vue';
+import XivMethodsApi from '../../../api/Xivapi/XivMethodsApi'
+
+defineProps({
+    job: Object
+})
+</script>
+
+<template>
+    <ul>
+        <li>
+            <ClassLine
+                :className="job.Name"
+                :classIconUrl="XivMethodsApi.getBaseApiUrl()+job.Icon"
+                :classId="job.ID"
+            />
+        </li>
+        <li>Role : {{ $filters.stringifyJobRole(job.Role) }}</li>
+        <li>Job category : {{ job.ClassJobCategory.Name }}</li>
+        <li>Starting level : {{ job.StartingLevel }}</li>
+        <li v-if="job.ItemStartingWeapon.ClassJobUse">Starting town : {{ job.ItemStartingWeapon.ClassJobUse?.StartingTown?.Name }}</li>
+        <li v-if="job.UnlockQuest.ClassJobLevel0">Level required for unlocking : {{ job.UnlockQuest.ClassJobLevel0 }}</li>
+    </ul>
+</template>

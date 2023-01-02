@@ -1,6 +1,7 @@
 <script setup>
 import ClassLine from '../../components/oneLineBlocks/ClassLine.vue';
 import XivMethodsApi from '../../../api/Xivapi/XivMethodsApi'
+import stringifyJobRole from '../../filters/stringifyJobRole'
 
 defineProps({
     job: Object
@@ -16,7 +17,7 @@ defineProps({
                 :classId="job.ID"
             />
         </li>
-        <li>Role : {{ $filters.stringifyJobRole(job.Role) }}</li>
+        <li>Role : {{ stringifyJobRole(job.Role) }}</li>
         <li>Job category : {{ job.ClassJobCategory.Name }}</li>
         <li>Starting level : {{ job.StartingLevel }}</li>
         <li v-if="job.ItemStartingWeapon.ClassJobUse">Starting town : {{ job.ItemStartingWeapon.ClassJobUse?.StartingTown?.Name }}</li>

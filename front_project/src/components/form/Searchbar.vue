@@ -1,5 +1,8 @@
 <script setup>
-defineProps(
+import { ref, watch } from 'vue'
+import XivMethodsApi from '../../../api/Xivapi/XivMethodsApi'
+
+const props = defineProps(
     {
         placeholder: {
             type: String,
@@ -13,14 +16,26 @@ defineProps(
             type: String,
             default: '',
         },
+        searchType: {
+            type: String,
+            default: ''
+        }
     }
 )
+const searchValue = ref('');
+
+if(props.searchType) {
+    watch(searchValue, async (newSearch, previousSearch) => {
+        const searchType = `${props.searchType}Search`
+        XivMethodsApi[searchType](newSearch);
+    })
+}
 
 </script>
 
 <template>
     <form>
-        <input type="search" :name="serachBarId" :id="serachBarId" :placeholder="placeholder" :value="inputValue" />
+        <input type="search" :name="serachBarId" :id="serachBarId" :placeholder="placeholder" v-model="searchValue" />
         <button type="submit"><i class="fa fa-search"></i></button>
     </form>
 </template>

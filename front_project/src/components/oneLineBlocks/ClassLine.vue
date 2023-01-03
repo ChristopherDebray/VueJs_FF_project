@@ -1,4 +1,6 @@
 <script setup>
+    import capitalizeFirstLetter from '../../filters/capitalizeFirstLetter';
+
     defineProps(
         {
             className: {
@@ -15,12 +17,11 @@
             }
         }
     )
-
 </script>
 
 <template>
     <div class="class_line">
-        <router-link class="hover:bg-light hover:text-dark" :to="`/jobs/${classId}`">
+        <router-link class="hover:underline" :to="`/jobs/${classId}`">
             <img :src="classIconUrl" :alt="capitalizeFirstLetter(className)+' job icon'" class="class_line__icon">
             <span class="class_line__name">{{ capitalizeFirstLetter(className) }}</span>
         </router-link>
@@ -36,6 +37,7 @@
         align-items: center;
         width: 100%;
         padding: 10px;
+        padding: 10px 0;
     }
     .class_line__icon {
         width: 48px;

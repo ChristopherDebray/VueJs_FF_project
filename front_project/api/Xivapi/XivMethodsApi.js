@@ -16,4 +16,11 @@ export default {
             .get(`${APISettings.baseURL}/ClassJob/${jobId}?columns=ID,Name,Icon,ClassJobCategory.Name,StartingLevel,ClassJobParent,UnlockQuest.ClassJobLevel0,Role,ItemStartingWeapon.ClassJobUse.StartingTown&${APISettings.privateKeyString}`)
             .then(response => (this.info = response.data))
     },
+
+    async charactersSearch (caracterName) {
+        let caracterSearchString = caracterName.replace(' ', '+')
+        return axios
+            .get(`${APISettings.baseURL}/character/search?name=${caracterSearchString}`)
+            .then(response => (this.info = response.data))
+    }
 }

@@ -1,11 +1,12 @@
 import XivMethodsApi from "../../api/Xivapi/XivMethodsApi";
+import { defineStore } from 'pinia';
 
-export const jobStore = defineStore('job', {
+export const useSearchStore = defineStore('job', {
     state: () => ({
         characterSearchResult: {}
     }),
     actions: {
-        async characterSearch(searchString) {
+        async fetchCharacterSearch(searchString) {
             const characterSearchResult = await XivMethodsApi.charactersSearch(searchString)
             this.characterSearchResult = characterSearchResult;
         },

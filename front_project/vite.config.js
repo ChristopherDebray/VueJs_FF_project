@@ -34,6 +34,9 @@ export default defineConfig({
             // default imports
             ['default', 'axios'], // import { default as axios } from 'axios',
           ],
+          'pinia': [
+            'storeToRefs'
+          ],
           '[package-name]': [
             '[import-names]',
             // alias

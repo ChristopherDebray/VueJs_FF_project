@@ -23,13 +23,19 @@ const props = defineProps(
     }
 )
 const searchValue = ref('');
+let data = null;
 
 if(props.searchType) {
     watch(searchValue, async (newSearch, previousSearch) => {
         const searchType = `${props.searchType}Search`
-        XivMethodsApi[searchType](newSearch);
+        data = await XivMethodsApi[searchType](newSearch);
+        console.log(data)
     })
 }
+
+defineExpose({data})
+
+
 
 </script>
 

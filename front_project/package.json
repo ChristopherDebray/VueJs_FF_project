@@ -14,9 +14,9 @@
     "@vue/test-utils": "^2.0.0-rc.18",
     "axios": "^1.2.1",
     "happy-dom": "^8.1.0",
+    "pinia": "^2.0.28",
     "vue": "^3.2.45",
-    "vue-router": "^4.0.13",
-    "vuex": "^4.0.2"
+    "vue-router": "^4.0.13"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^3.0.0",

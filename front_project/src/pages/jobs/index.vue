@@ -2,16 +2,41 @@
 import TwoColumnLayout from '../../layouts/twoColumn.vue';
 import { useJobStore } from '../../stores/jobStore';
 import ClassLine from '../../components/oneLineBlocks/ClassLine.vue';
+import XivMethodsApi from '../../../api/Xivapi/XivMethodsApi';
 
 const jobStore = useJobStore();
-jobStore.fetchAllJobs();
-
+/*
 const { jobs } = storeToRefs(jobStore)
+const { getJobs } = jobStore;
+*/
 
-console.error(jobStore.getJobs);
-console.log(jobs);
+onBeforeMount(() => {
+    jobStore.fetchAllJobs();
+});
 
+const { jobs, getJobs } = storeToRefs(jobStore)
 
+/*
+watch(jobs, async (result, previousResult) => {
+    // const searchType = `${props.searchType}Search`
+    // data = await XivMethodsApi[searchType](newSearch);
+
+    const middleIndex = Math.ceil(result.length / 2);
+    
+
+    console.log(firstJobsHalf)
+    console.log(secondJobsHalf);
+})
+*/
+let firstJobsHalf, secondJobsHalf;
+
+watch(getJobs, () => {
+    let jobArray = Object.entries(getJobs.value);
+    const middleIndex = Math.ceil(jobArray.length / 2);
+    firstJobsHalf = jobArray.splice(0, middleIndex);
+    secondJobsHalf = jobArray.splice(-middleIndex);
+})
+//const firstJobsHalf = jobs
 
 /*
 const allJobs = await XivMethodsApi.getAllJobs()

@@ -2,14 +2,17 @@
 import ClassLine from '../../components/oneLineBlocks/ClassLine.vue';
 import XivMethodsApi from '../../../api/Xivapi/XivMethodsApi'
 import stringifyJobRole from '../../filters/stringifyJobRole'
+import { onBeforeMount, onMounted, watch } from '@vue/runtime-core';
 
-defineProps({
+const props = defineProps({
     job: Object
 })
+
+
 </script>
 
 <template>
-    <ul>
+    <ul v-if='job.ClassJobCategory'>
         <li>
             <ClassLine
                 :className="job.Name"

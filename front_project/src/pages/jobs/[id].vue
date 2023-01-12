@@ -1,10 +1,22 @@
 <script setup>
 import TwoColumnDescriptiveLayout from '../../layouts/twoColumnDescriptive.vue';
 import XivMethodsApi from '../../../api/Xivapi/XivMethodsApi'
-import JobDetailCardVue from '../../components/cards/JobDetailCard.vue';
+import JobDetailCard from '../../components/cards/JobDetailCard.vue';
+import { useJobStore } from '../../stores/jobStore';
+import { watch } from '@vue/runtime-core';
+
+const jobStore = useJobStore();
 const route = useRoute()
-const jobInfos = await XivMethodsApi.getBasicJobDetails(route.params.id)
-const ClassJobParent = jobInfos.ClassJobParent;
+const { jobDetail } = storeToRefs(jobStore);
+const jobRouteId = ref(route.params.id);
+
+onBeforeMount(async () => {
+    await jobStore.fetchJobDetails(route.params.id)
+})
+
+watch(() => route.params.id, (newJobId, previousJobId) => {
+    jobStore.fetchJobDetails(newJobId)
+})
 
 </script>
 
@@ -14,11 +26,12 @@ const ClassJobParent = jobInfos.ClassJobParent;
         </template>
         <template #sideBar>
             <!-- Will contain the parent job infos if the job has one -->
-            <JobDetailCardVue v-if="ClassJobParent" :job="ClassJobParent" />
+            {{  ClassJobParent }}
+            <JobDetailCard v-if="jobDetail.ClassJobParent" :job="jobDetail.ClassJobParent" />
         </template>
         <template #content>
             <!-- Will contain the job infos -->
-            <JobDetailCardVue :job="jobInfos" />
+            <JobDetailCard :job="jobDetail" />
         </template>
     </TwoColumnDescriptiveLayout>
 </template>

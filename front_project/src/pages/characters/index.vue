@@ -6,16 +6,6 @@ const searchStore = useSearchStore();
 const { characterSearchResult } = storeToRefs(searchStore)
 const searchBar = ref(null);
 
-/*
-{
-    "Avatar": "https:\/\/img2.finalfantasyxiv.com\/f\/5b99cd8dd0208c7aba0e8f5c66f83f94_c33f640c0cdd35f7def85b8aa31a0007fc0_96x96.jpg?1673535638",
-    "ID": 45663480,
-    "Lang": "FR",
-    "Name": "Pinkuy Pingu",
-    "Server": "Twintania"
-}
-*/
-
 </script>
 
 <template>

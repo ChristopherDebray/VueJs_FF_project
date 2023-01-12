@@ -6,7 +6,7 @@ export const useSearchStore = defineStore('job', {
         characterSearchResult: {}
     }),
     actions: {
-        async fetchCharacterSearch(searchString) {
+        async charactersSearch(searchString) {
             const characterSearchResult = await XivMethodsApi.charactersSearch(searchString)
             this.characterSearchResult = characterSearchResult;
         },

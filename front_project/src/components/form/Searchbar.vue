@@ -1,6 +1,8 @@
 <script setup>
+import { storeToRefs } from 'pinia';
 import { ref, watch } from 'vue'
 import XivMethodsApi from '../../../api/Xivapi/XivMethodsApi'
+import { useSearchStore } from '../../stores/searchStore';
 
 const props = defineProps(
     {
@@ -22,28 +24,26 @@ const props = defineProps(
         }
     }
 )
+const searchStore = useSearchStore();
+const { characterSearchResult } = storeToRefs(searchStore)
 const searchValue = ref('');
-let data = null;
 
-if(props.searchType) {
-    watch(searchValue, async (newSearch, previousSearch) => {
-        const searchType = `${props.searchType}Search`
-        data = await XivMethodsApi[searchType](newSearch);
-        console.log(data)
-    })
+// if(props.searchType) {}
+
+async function fetchSearchResult() {
+    const searchType = `${props.searchType}Search`
+    searchStore[searchType](searchValue.value)
+    console.log(characterSearchResult)
+    //data = await XivMethodsApi[searchType](searchValue.value);
 }
-
-defineExpose({data})
-
-
 
 </script>
 
 <template>
-    <form>
+    <div>
         <input type="search" :name="serachBarId" :id="serachBarId" :placeholder="placeholder" v-model="searchValue" />
-        <button type="submit"><i class="fa fa-search"></i></button>
-    </form>
+        <button @click="fetchSearchResult"><i class="fa fa-search"></i></button>
+    </div>
 </template>
 
 <style scoped>

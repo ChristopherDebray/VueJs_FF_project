@@ -7,11 +7,6 @@ export const useJobStore = defineStore('job', {
         twoArrayJobs: {},
         jobDetail: {}
     }),
-    getters: {
-        getJobs(state) {
-            return state.jobs;
-        }
-    },
     actions: {
         async fetchAllJobs() {
             const allJobs = await XivMethodsApi.getAllJobs()
@@ -19,12 +14,12 @@ export const useJobStore = defineStore('job', {
             this.jobs = jobsResult;
             this.setTwoArrayJobs();
         },
-        setTwoArrayJobs() {
+        async setTwoArrayJobs() {
             const middleIndex = Math.ceil(this.jobs.length / 2);
-            
+            let jobsArray = Object.values(this.jobs);
             this.twoArrayJobs = {
-                'firstJobsHalf': this.jobs.splice(0, middleIndex),
-                'secondJobsHalf': this.jobs.splice(-middleIndex)
+                'firstJobsHalf': jobsArray.splice(0, middleIndex),
+                'secondJobsHalf': jobsArray.splice(-middleIndex)
             };
         },
         async fetchJobDetails(jobId) {

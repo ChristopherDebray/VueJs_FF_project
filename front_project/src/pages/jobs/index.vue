@@ -5,38 +5,12 @@ import ClassLine from '../../components/oneLineBlocks/ClassLine.vue';
 import XivMethodsApi from '../../../api/Xivapi/XivMethodsApi';
 
 const jobStore = useJobStore();
-
-/*
-const { jobs, getJobs } = storeToRefs(jobStore)
-
-onMounted(() => {
-    //console.log(test)
-    console.log("MOUNTED")
-});
-
-let test = computed(() => {
-    console.log("COMPUTED");
-    jobStore.getJobs
-});
-console.error(test);
-
-let firstJobsHalf, secondJobsHalf;
-
-watch(getJobs, () => {
-    let jobArray = Object.entries(getJobs.value);
-    const middleIndex = Math.ceil(jobArray.length / 2);
-    firstJobsHalf = jobArray.splice(0, middleIndex);
-    secondJobsHalf = jobArray.splice(-middleIndex);
-})
-*/
-
-const { jobs, getJobs, setTwoArrayJobs } = storeToRefs(jobStore)
+const { twoArrayJobs, setTwoArrayJobs } = storeToRefs(jobStore)
 
 onBeforeMount(async () => {
     jobStore.fetchAllJobs();
+    jobStore.setTwoArrayJobs();
 });
-
-console.log(jobs)
 
 </script>
 
@@ -47,7 +21,7 @@ console.log(jobs)
             </template>
             <template #leftSide>
                 <ul>
-                    <li v-for="job in jobs" :key="job">
+                    <li v-for="job in twoArrayJobs.firstJobsHalf" :key="job">
                         <ClassLine
                             :className="job.Name"
                             :classIconUrl="XivMethodsApi.getBaseApiUrl()+job.Icon"
@@ -58,7 +32,7 @@ console.log(jobs)
             </template>
             <template #rightSide>
                 <ul>
-                    <li v-for="job in jobs.secondJobsHalf" :key="job">
+                    <li v-for="job in twoArrayJobs.secondJobsHalf" :key="job">
                         <ClassLine
                             :className="job.Name"
                             :classIconUrl="XivMethodsApi.getBaseApiUrl()+job.Icon"

@@ -12,7 +12,7 @@ const props = defineProps({
 </script>
 
 <template>
-    <ul v-if='job.ClassJobCategory'>
+    <ul v-if='job.ClassJobCategory' class="jobDetailCard">
         <li>
             <ClassLine
                 :className="job.Name"
@@ -27,3 +27,11 @@ const props = defineProps({
         <li v-if="job.UnlockQuest.ClassJobLevel0">Level required for unlocking : {{ job.UnlockQuest.ClassJobLevel0 }}</li>
     </ul>
 </template>
+
+<style scoped>
+.jobDetailCard {
+    border: 1px solid #D3ADA6;
+    border-radius: 10px;
+    padding: 7px 7px 7px 14px;
+}
+</style>

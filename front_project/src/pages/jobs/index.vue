@@ -3,11 +3,17 @@ import TwoColumnLayout from '../../layouts/twoColumn.vue';
 import { useJobStore } from '../../stores/jobStore';
 import ClassLine from '../../components/oneLineBlocks/ClassLine.vue';
 import XivMethodsApi from '../../../api/Xivapi/XivMethodsApi';
+import { onMounted } from '@vue/runtime-core';
 
 const jobStore = useJobStore();
 const { twoArrayJobs } = storeToRefs(jobStore)
 
 onBeforeMount(() => {
+    const areJobsAlreadyLoaded = jobStore.twoArrayJobs.firstJobsHalf;
+    if(areJobsAlreadyLoaded) {
+        return;
+    }
+
     jobStore.fetchAllJobs();
     jobStore.setTwoArrayJobs();
 });
@@ -43,6 +49,3 @@ onBeforeMount(() => {
         </template>
     </TwoColumnLayout>
 </template>
-
-<style scoped>
-</style>

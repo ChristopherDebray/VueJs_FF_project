@@ -1,5 +1,6 @@
 <script setup>
 import Searchbar from '../../components/form/Searchbar.vue';
+import CharacterPreviewCard from '../../components/cards/CharacterPreviewCard.vue';
 import { useSearchStore } from '../../stores/searchStore';
 
 const searchStore = useSearchStore();
@@ -14,12 +15,8 @@ const searchBar = ref(null);
 
         <Searchbar searchType="characters" :ref="searchBar" />
 
-        <div v-if="characterSearchResult">
-            <div v-for="character in characterSearchResult.Results" :key="character">
-                <img :src="character.Avatar" :alt="'Image of '+character.Name" />
-                <p>{{ character.Name }}</p>
-                <p>{{ character.Server }}</p>
-            </div>
+        <div v-if="characterSearchResult" class="flex mt-5">
+            <CharacterPreviewCard :character="character" v-for="character in characterSearchResult.Results" :key="character" />
         </div>
     </main>
 </template>
